@@ -28,9 +28,11 @@ Notice how this example did *not* fork AFeature.  It instead links directly to A
 
 ## Adding a dependency to your Application's Xcode project
 
-Simply drag Modules/AFeature/AFeature.xcodeproj to your MyApp project as shown below.
+Simply drag Modules/AFeature/AFeature.xcodeproj to your MyApp project.  Once you've done that, then add the produced AFeature.framework to the list of Embedded Binaries.  See the example below:
 
 ![Example](https://github.com/modulo-dm/workflow/raw/master/adddeptoapp.gif "Example")
+
+Adding it to Embedded Binaries will also include it in the list of Linked Frameworks.
 
 ## Adding a dependency to a module/framework
 
