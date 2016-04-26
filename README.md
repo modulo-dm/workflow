@@ -30,7 +30,7 @@ Notice how this example did *not* fork AFeature.  It instead links directly to A
 
 Simply drag Modules/AFeature/AFeature.xcodeproj to your MyApp project as shown below.
 
-![Example](https://github.com/modulo-dm/workflow/raw/master/App-AddDep.png "Example")
+![Example](https://github.com/modulo-dm/workflow/raw/master/adddeptoapp.gif "Example")
 
 ## Adding a dependency to a module/framework
 
