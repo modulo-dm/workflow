@@ -20,4 +20,4 @@ Describes the suggested workflow.
 
 ## When to make a pre-release
 
-## ... 
+## How to update a dependency
