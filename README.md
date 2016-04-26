@@ -13,20 +13,39 @@ Describes the suggested workflow.
 
 ## Adding a dependency to an application
 
-Link your sumodule directly to the org repo that owns the respository.  They will be responsible for their own releases.  For instance, imagine an iPhone app called "MyApp", which is in an org called "MyAppOrg".  Now imagine a feature owned by a different group called "AFeature" in an org called "FeatureTeam".
+Link your submodule directly to the org repo that owns the respository.  They will be responsible for their own releases.  For instance, imagine an iPhone app called "MyApp", which is in an org called "MyAppOrg".  Now imagine a feature owned by a different group called "AFeature" in an org called "FeatureTeam".
 
 An example would be:
 
 ```bash
-MyApp $> git submodule add git@github.com:featureteam/afeature.git .\modules
-MyApp $> git sudmodule update --init
-MyApp $> cd modules
-MyApp/AFeature $> git checkout "v1.0.0"
+./MyApp $> git submodule add git@github.com:featureteam/afeature.git ./Modules/AFeature
+./MyApp $> git sudmodule update --init
+./MyApp $> cd Modules
+./MyApp/AFeature $> git checkout "v1.0.0"
 ```
 
-Notice how this person did *not* fork AFeature.  They instead linked directly to it at a specific version.
+Notice how this example did *not* fork AFeature.  It instead links directly to AFeature at a specific version.
+
+## Adding a dependency to your Application's Xcode project
+
+Simply drag Modules/AFeature/AFeature.xcodeproj to your MyApp project as shown below.
+
+[[https://raw.githubusercontent.com/modulo-dm/workflow/master/App-AddDep.png]]
 
 ## Adding a dependency to a module/framework
+
+Do *not* add your dependency as a submodule.  Instead go one directory up, "../", and clone it there.
+
+In this example, there is a module being developed called "MyModule", and it requires "MyLibrary" to build.
+
+```bash
+./MyModule $> cd ../
+./ $> git clone git@github.com:libraryteam/mylibrary.git MyLibrary
+./ $> cd MyLibrary
+./MyLibrary $> git checkout "v1.0.0"
+```
+
+The reason we clone to "../" is to allow all dependencies to live side by side.  This makes working on an Application or a Module/Framework reference any dependencies in the exact same way.  Regardless of whether you are working on an Application for Framework, dependencies are in the same place as each other now.
 
 ## Modifying a dependency that you own
 
