@@ -91,11 +91,32 @@ At this point in time, we should currently be on a specific version tag of MyLib
 ./MyLibrary $> git checkout -b "My Fix"
 ```
 
-You'll now be able to make the modifications that are needed in a newly created branch called 'My Fix'.  You'll be able to build and test these changes in your app.  When you've finished, you should now do a PR from your 'My Fix' branch back to 'master'.  
+You'll now be able to make the modifications that are needed in a newly created branch called 'My Fix'.  You'll be able to build and test these changes in your app.  When you've finished, you should now do a PR from your 'My Fix' branch back to 'master' and get a peer to review it.  
 
 Once the PR has been accepted, the reviewer should delete the branch.
 
+
 ## Modifying a dependency that you don't own
+
+This is the only case where a fork is acceptable.
+
+In this example, imagine we're working on a module called MyFeature, and we need to make a change to MyLibrary to facilitate that, and it's owned by another team.
+
+First thing we'll need to do is Fork it.  This can be done on github, as shown here:
+
+![Example3](https://github.com/modulo-dm/workflow/raw/master/wheretofork.png "Example3")
+
+Next, you'll want to make sure you check out the tag of the release you were on, and start a new branch from it.
+
+```bash
+./MyFeature $> cd ../
+./ $> git clone git@github.com:libraryteam/mylibrary.git MyLibrary
+./ $> cd MyLibrary
+./MyLibrary $> git checkout "v1.0.0"
+./MyLibrary $> git checkout -b "My Fix"
+```
+
+You'll now be able to make the modifications that are needed in a newly created branch called 'My Fix'.  You'll be able to build and test these changes in your app.  When you've finished, you should now do a PR from your 'My Fix' branch back to the original org's repository.  When accepted, either delete your fork, or at the very least pull from the original so that your master and list of tags matches theirs.
 
 
 ## What if Master is at v2.0.0, and I need to make a fix to v1.0.0?
