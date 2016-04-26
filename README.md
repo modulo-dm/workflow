@@ -7,6 +7,7 @@ Describes the suggested workflow.
 - Modules/Frameworks should *not* have submodules.
 - Each team has it's own organization to limit write-access.
 - Modules/Frameworks refer to their dependency projects by ../
+- Suggested that the only branch ever in use is Master.
 
 ## Adding a dependency to an application
 
