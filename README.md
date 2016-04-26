@@ -6,7 +6,7 @@ Describes the suggested workflow.
 - Only applications should have submodules.
 - Modules/Frameworks should *not* have submodules.
 - Each team has it's own organization to limit write-access.
-- Modules/Frameworks refer to their dependency projects by ..\
+- Modules/Frameworks refer to their dependency projects by ../
 
 ## Adding a dependency to an application
 
