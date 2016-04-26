@@ -9,6 +9,7 @@ Describes the suggested workflow.
 - Modules/Frameworks refer to their dependency projects by ../
 - Suggested that the only branch ever in use is Master.
 - Only version tags or 'master' should be used for checkout purposes.
+- Feature or Fix branches may be used, but must be deleted after a PR or Version tag is created for it.
 - Forks are only used in the case of Modifying a dependency you don't own.
 
 ## Adding a dependency to an application
@@ -59,10 +60,28 @@ Simply drag ../MyLibrary/MyLibrary.xcodeproj to your MyModule project.  Once you
 
 Note: This process is the same whether you own the dependency or not.
 
-
 ## Modifying a dependency that you own
 
+In this example, imagine we're working on a module called MyFeature, and we need to make a change to MyLibrary to facilitate that.
+
+At this point in time, we should currently be on a specific version tag of MyLibrary.  Go into the MyLibrary directory ("../" if you're building a module, "modules/" if you're working on an Application) and switch to 'master'.  Do a Pull to make sure you have the latest code.
+
+```bash
+./MyFeature $> cd ../MyLibrary
+./MyLibrary $> git checkout master
+./MyLibrary $> git pull origin
+./MyLibrary $> git checkout -b "My Fix"
+```
+
+You'll now be able to make the modifications that are needed in a newly created branch called 'My Fix'.  You'll be able to build and test these changes in your app.  When you've finished, you should now do a PR from your 'My Fix' branch back to 'master'.  
+
+Once the PR has been accepted, the reviewer should delete the branch.
+
 ## Modifying a dependency that you don't own
+
+## What if Master is at 2.0.0, and I need to make a fix to 1.0.0?
+
+Follow the appropriate steps above to the point of making a PR.  At this point, you'll want to make a new release that includes your bug fix.  Since your fix is for 1.0.0, your new release tag will be 1.0.1 (refer to versioning above) and point to the SHA your branch is using.  Once tagged, your fix branch can be deleted.  You'll have to manage getting your fix PR'd into master seperately as things may have changed enough that it doesn't merge cleanly.
 
 ## Making a release
 
