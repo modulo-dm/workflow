@@ -12,6 +12,20 @@ Describes the suggested workflow.
 - Feature or Fix branches may be used, but must be deleted after a PR or Version tag is created for it.
 - Forks are only used in the case of Modifying a dependency you don't own.
 
+## Versioning
+
+Given this example:
+
+```
+v2.1.1
+```
+We follow semver fairly closely.  This is release 2, with 1 additional feature added, and 1 bug fix.  One place where we deviate from semver is in the definition of the decimal places in the string.
+
+BREAKING.FEATURE.FIX is more descriptive of what we do than Semver's MAJOR.MINOR.PATCH.
+
+Try to avoid things like v2.1.1-rc3, and the like.  If there were 3 release candidates, it's likely fixes were made, so increment the FIX number instead.  In the future tools will be available such that you can specify that any version greater than 2.0 is supported, ie: "<= v2.0.0", which will eliminate the need to fixup version mismatches.
+
+
 ## Adding a dependency to an application
 
 Link your submodule directly to the org repo that owns the respository.  They will be responsible for their own releases.  For instance, imagine an iPhone app called "MyApp", which is in an org called "MyAppOrg".  Now imagine a feature owned by a different group called "AFeature" in an org called "FeatureTeam".
@@ -27,6 +41,7 @@ An example would be:
 
 Notice how this example did *not* fork AFeature.  It instead links directly to AFeature at a specific version.
 
+
 ## Adding a dependency to your Application's Xcode project
 
 Simply drag Modules/AFeature/AFeature.xcodeproj to your MyApp project.  Once you've done that, then add the produced AFeature.framework to the list of Embedded Binaries.  See the example below:
@@ -36,6 +51,7 @@ Simply drag Modules/AFeature/AFeature.xcodeproj to your MyApp project.  Once you
 Adding it to Embedded Binaries will also include it in the list of Linked Frameworks.  In cases where your dependency has things that it depends on, that your application does not, it may be necessary to add those to the list of Embedded Binaries as well.
 
 Note: This process is the same whether you own the dependency or not.
+
 
 ## Adding a dependency to a module/framework
 
@@ -52,6 +68,7 @@ In this example, there is a module being developed called "MyModule", and it req
 
 The reason we clone to "../" is to allow all dependencies to live side by side.  This makes working on an Application or a Module/Framework reference any dependencies in the exact same way.  Regardless of whether you are working on an Application or Framework, dependencies are in the same place as each other now.
 
+
 ## Adding a dependency to your Module's Xcode project.
 
 Simply drag ../MyLibrary/MyLibrary.xcodeproj to your MyModule project.  Once you've done that, then add the produced MyLibrary.framework to the list of Linked Libraries.  See the example below:
@@ -59,6 +76,7 @@ Simply drag ../MyLibrary/MyLibrary.xcodeproj to your MyModule project.  Once you
 ![Example2](https://github.com/modulo-dm/workflow/raw/master/adddeptomodule.gif "Example2")
 
 Note: This process is the same whether you own the dependency or not.
+
 
 ## Modifying a dependency that you own
 
@@ -79,12 +97,16 @@ Once the PR has been accepted, the reviewer should delete the branch.
 
 ## Modifying a dependency that you don't own
 
-## What if Master is at 2.0.0, and I need to make a fix to 1.0.0?
 
-Follow the appropriate steps above to the point of making a PR.  At this point, you'll want to make a new release that includes your bug fix.  Since your fix is for 1.0.0, your new release tag will be 1.0.1 (refer to versioning above) and point to the SHA your branch is using.  Once tagged, your fix branch can be deleted.  You'll have to manage getting your fix PR'd into master seperately as things may have changed enough that it doesn't merge cleanly.
+## What if Master is at v2.0.0, and I need to make a fix to v1.0.0?
+
+Follow the appropriate steps above to the point of making a PR.  At this point, you'll want to make a new release that includes your bug fix.  Since your fix is for v1.0.0, your new release tag will be v1.0.1 (refer to versioning above) and point to the SHA your branch is using.  Once tagged, your fix branch can be deleted.  You'll have to manage getting your fix PR'd into master seperately as things may have changed enough that it doesn't merge cleanly.
+
 
 ## Making a release
 
+
 ## When to make a pre-release
+
 
 ## How to update a dependency
