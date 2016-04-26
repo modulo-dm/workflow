@@ -32,7 +32,7 @@ Simply drag Modules/AFeature/AFeature.xcodeproj to your MyApp project.  Once you
 
 ![Example](https://github.com/modulo-dm/workflow/raw/master/adddeptoapp.gif "Example")
 
-Adding it to Embedded Binaries will also include it in the list of Linked Frameworks.
+Adding it to Embedded Binaries will also include it in the list of Linked Frameworks.  Note: This process is the same whether you own the module or not.
 
 ## Adding a dependency to a module/framework
 
@@ -47,7 +47,7 @@ In this example, there is a module being developed called "MyModule", and it req
 ./MyLibrary $> git checkout "v1.0.0"
 ```
 
-The reason we clone to "../" is to allow all dependencies to live side by side.  This makes working on an Application or a Module/Framework reference any dependencies in the exact same way.  Regardless of whether you are working on an Application for Framework, dependencies are in the same place as each other now.
+The reason we clone to "../" is to allow all dependencies to live side by side.  This makes working on an Application or a Module/Framework reference any dependencies in the exact same way.  Regardless of whether you are working on an Application or Framework, dependencies are in the same place as each other now.
 
 ## Modifying a dependency that you own
 
