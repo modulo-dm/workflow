@@ -55,7 +55,7 @@ The reason we clone to "../" is to allow all dependencies to live side by side. 
 
 Simply drag ../MyLibrary/MyLibrary.xcodeproj to your MyModule project.  Once you've done that, then add the produced MyLibrary.framework to the list of Linked Libraries.  See the example below:
 
-![Example](https://github.com/modulo-dm/workflow/raw/master/adddeptomodule.gif "Example")
+![Example2](https://github.com/modulo-dm/workflow/raw/master/adddeptomodule.gif "Example2")
 
 Note: This process is the same whether you own the dependency or not.
 
