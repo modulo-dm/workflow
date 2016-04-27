@@ -12,6 +12,10 @@
 - [Updating a Dependency](#updating-dep)
 - [Q & A](#q-and-a)
 
+## Terms
+- Team: TBD
+- Semver: See http://semver.org
+
 
 <a name="ground-rules"></a>
 ## Ground rules
@@ -202,3 +206,7 @@ Probably.  Assume you're PR'ing to master, provide as much information to the re
 ## Should I change how I review PRs?
 
 Yes.  You should review the pre-release tag if one was given by the submitter, if it is insufficient, make note in the PR request and send it back to the submitter.  If everything looks good, be sure that you check the box to delete the branch as well.  This will keep branches to a minimum since we're focusing development on master.
+
+## Will it be possible for two things have a common dependency on different versions?
+
+No.  If two modules share a common dependency, they must both use the same version.  This prevents duplicated code, but does involve more work.  No one wants a situation where the same library is included 5 times with different versions.  It will be very important that modules are kept up to date.
