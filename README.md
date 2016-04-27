@@ -15,6 +15,7 @@
 ## Terms
 - Team: TBD
 - Semver: See http://semver.org
+- Module: A unit of code in the form of a library or framework.
 
 
 <a name="ground-rules"></a>
