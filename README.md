@@ -119,11 +119,6 @@ Next, you'll want to make sure you check out the tag of the release you were on,
 You'll now be able to make the modifications that are needed in a newly created branch called 'My Fix'.  You'll be able to build and test these changes in your app.  When you've finished, you should now do a PR from your 'My Fix' branch back to the original org's repository.  When accepted, either delete your fork, or at the very least pull from the original so that your master and list of tags matches theirs.
 
 
-## What if Master is at v2.0.0, and I need to make a fix to v1.0.0?
-
-Follow the appropriate steps above to the point of making a PR.  At this point, you'll want to make a new release that includes your bug fix.  Since your fix is for v1.0.0, your new release tag will be v1.0.1 (refer to versioning above) and point to the SHA your branch is using.  Once tagged, your fix branch can be deleted.  You'll have to manage getting your fix PR'd into master seperately as things may have changed enough that it doesn't merge cleanly.
-
-
 ## Making a release
 
 
@@ -131,3 +126,11 @@ Follow the appropriate steps above to the point of making a PR.  At this point, 
 
 
 ## How to update a dependency
+
+
+# Q & A
+
+## What if Master is at v2.0.0, and I need to make a fix to v1.0.0?
+
+Follow the appropriate steps above to the point of making a PR.  At this point, you'll want to make a new release that includes your bug fix.  Since your fix is for v1.0.0, your new release tag will be v1.0.1 (refer to versioning above) and point to the SHA your branch is using.  It's best to tag your release at this point and check the "Pre-Release" box, since it hasn't been accepted into the master yet.  Once tagged and PR'd, your fix branch can be deleted.  You'll have to manage getting your fix PR'd into master seperately as things may have changed enough that it doesn't merge cleanly.
+
