@@ -13,10 +13,13 @@
 - [Q & A](#q-and-a)
 
 ## Terms
-- Team: TBD
+- Team: A group that is responsible for a limited number of sections in an overall application.
 - Semver: See http://semver.org
 - Module: A unit of code in the form of a library or framework.
 
+## A word about Teams
+
+A team can be divided up however you like.  The idea is to figure out the lines of responsibility such that only those responsible for a given piece have write access to it, and any outside changes come in the form of PRs.
 
 <a name="ground-rules"></a>
 ## Ground rules
