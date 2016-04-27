@@ -124,9 +124,13 @@ You'll now be able to make the modifications that are needed in a newly created 
 Go to your project on Github.  Once there perform the steps below:
 
 ![Release1](https://github.com/modulo-dm/workflow/raw/master/release1.png "Release1")
+...
+
 ![Release2](https://github.com/modulo-dm/workflow/raw/master/release2.png "Release2")
 
 Lastly, fill out the form appropriately.  If your change hasn't been PR'd be sure to check the "Pre-release" box.
+
+Remember, use Semver formatting when you specify your tag name, ie: v1.2.3.  Once you've done that, select the branch you made your changes on from the dropdown to the right of where you entered the tag name.
 
 ![Release3](https://github.com/modulo-dm/workflow/raw/master/release3.png "Release3")
 
@@ -137,6 +141,26 @@ You should strive to be as thorough as this.  It's very helpful to those who dep
 
 ## How to update a dependency
 
+If you're working on an Application:
+
+```bash
+./MyApp $> cd modules/MyFeature
+./MyApp/modules/MyFeature $> git fetch --all
+./MyApp/modules/MyFeature $> git checkout "v1.0.1"
+```
+
+If you're working on a Module/Framework:
+
+```bash
+./MyFeature $> cd ../MyLibrary
+./MyLibrary $> git fetch --all
+./MyLibrary $> git checkout "v1.0.2"
+```
+
+It's possible that you may need to go back to your app and fix any changes in the usage of the dependency you just updated.
+
+It is very important that you point your dependency to a specific version tag as much as possible.  A notable exceptions to this is modifying a dependency that is changing rapidly during development.  In that case, it may make more sense to point to 'master' temporarily while this work happens.
+
 
 # Q & A
 
@@ -144,4 +168,14 @@ You should strive to be as thorough as this.  It's very helpful to those who dep
 
 Follow the appropriate steps above to the point of making a PR.  At this point, you'll want to make a new release that includes your bug fix.  Since your fix is for v1.0.0, your new release tag will be v1.0.1 (refer to versioning above) and point to the SHA your branch is using.  It's best to tag your release at this point and check the "Pre-Release" box, since it hasn't been accepted into the master yet.  Once tagged and PR'd, your fix branch can be deleted.  You'll have to manage getting your fix PR'd into master seperately as things may have changed enough that it doesn't merge cleanly.
 
-## When to make a pre-release
+## When should I make a pre-release?
+
+If you need to share your changes amonst your peers and the changes haven't been PR'd or accepted into the mainline yet, a pre-release is very useful.  It allows others to point to it in the meantime while you're waiting on acceptance.
+
+## Should I change how I submit PRs?
+
+Probably.  Assume you're PR'ing to master, provide as much information to the reviewer as possible.  It may even be a repeat of your pre-release tag information.  Include information about any fixes that were performed, breaking changes, etc.  If you made a pre-release, provide the reviewer with the tag name you created.
+
+## Should I change how I review PRs?
+
+Yes.  You should review the pre-release tag if one was given by the submitter, if it is insufficient, make note in the PR request and send it back to the submitter.  If everything looks good, be sure that you check the box to delete the branch as well.  This will keep branches to a minimum since we're focusing development on master.
