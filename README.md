@@ -16,6 +16,7 @@
 - Team: A group that is responsible for a limited number of sections in an overall application.
 - Semver: See http://semver.org
 - Module: A unit of code in the form of a library or framework.
+- Organization: A GitHub organization that groups a collection of repositories together
 
 #### A word about Teams
 
@@ -26,7 +27,7 @@ A team can be divided up however you like.  The idea is to figure out the lines 
 
 - Only applications should have submodules.
 - Modules/Frameworks should *not* have submodules.
-- Each team has it's own organization to limit write-access.
+- Each team has it's own GitHub organization to limit write-access.
 - Modules/Frameworks refer to their dependency projects by ../
 - Suggested that the only branch ever in use is Master.
 - Only version tags or 'master' should be used for checkout purposes.
