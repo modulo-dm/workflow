@@ -1,7 +1,8 @@
-# workflow
-Describes the suggested workflow.
+# Git & Modularization Workflow
 
-## Ground rules
+*[Ground Rules](#ground-rules)
+
+## Ground rules<a name="ground-rules"></a>
 
 - Only applications should have submodules.
 - Modules/Frameworks should *not* have submodules.
