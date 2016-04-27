@@ -17,7 +17,7 @@
 - Semver: See http://semver.org
 - Module: A unit of code in the form of a library or framework.
 
-## A word about Teams
+#### A word about Teams
 
 A team can be divided up however you like.  The idea is to figure out the lines of responsibility such that only those responsible for a given piece have write access to it, and any outside changes come in the form of PRs.
 
