@@ -12,7 +12,9 @@
 - [Updating a Dependency](#updating-dep)
 - [Q & A](#q-and-a)
 
-## Ground rules<a name="ground-rules"></a>
+
+<a name="ground-rules"></a>
+## Ground rules
 
 - Only applications should have submodules.
 - Modules/Frameworks should *not* have submodules.
@@ -23,7 +25,9 @@
 - Feature or Fix branches may be used, but must be deleted after a PR or Version tag is created for it.
 - Forks are only used in the case of Modifying a dependency you don't own.
 
-## Versioning<a name="versioning"></a>
+
+<a name="versioning"></a>
+## Versioning
 
 Given this example:
 
@@ -37,7 +41,8 @@ BREAKING.FEATURE.FIX is more descriptive of what we do than Semver's MAJOR.MINOR
 Try to avoid things like v2.1.1-rc3, and the like.  If there were 3 release candidates, it's likely fixes were made, so increment the FIX number instead.  In the future tools will be available such that you can specify that any version greater than 2.0 is supported, ie: "<= v2.0.0", which will eliminate the need to fixup version mismatches.
 
 
-## Adding a dependency to an application<a name="add-dep-to-app"></a>
+<a name="add-dep-to-app"></a>
+## Adding a dependency to an application
 
 Link your submodule directly to the org repo that owns the respository.  They will be responsible for their own releases.  For instance, imagine an iPhone app called "MyApp", which is in an org called "MyAppOrg".  Now imagine a feature owned by a different group called "AFeature" in an org called "FeatureTeam".
 
@@ -64,7 +69,8 @@ Adding it to Embedded Binaries will also include it in the list of Linked Framew
 Note: This process is the same whether you own the dependency or not.
 
 
-## Adding a dependency to a module/framework<a name="add-dep-to-module"></a>
+<a name="add-dep-to-module"></a>
+## Adding a dependency to a module/framework
 
 Do *not* add your dependency as a submodule.  Instead go one directory up, "../", and clone it there.
 
@@ -80,7 +86,8 @@ In this example, there is a module being developed called "MyModule", and it req
 The reason we clone to "../" is to allow all dependencies to live side by side.  This makes working on an Application or a Module/Framework reference any dependencies in the exact same way.  Regardless of whether you are working on an Application or Framework, dependencies are in the same place as each other now.
 
 
-## Adding a dependency to your Module's Xcode project.<a name="use-dep-in-module"></a>
+<a name="use-dep-in-module"></a>
+## Adding a dependency to your Module's Xcode project.
 
 Simply drag ../MyLibrary/MyLibrary.xcodeproj to your MyModule project.  Once you've done that, then add the produced MyLibrary.framework to the list of Linked Libraries.  See the example below:
 
@@ -89,7 +96,8 @@ Simply drag ../MyLibrary/MyLibrary.xcodeproj to your MyModule project.  Once you
 Note: This process is the same whether you own the dependency or not.
 
 
-## Modifying a dependency that you own<a name="modify-owned-dep"></a>
+<a name="modify-owned-dep"></a>
+## Modifying a dependency that you own
 
 In this example, imagine we're working on a module called MyFeature, and we need to make a change to MyLibrary to facilitate that.
 
@@ -107,7 +115,8 @@ You'll now be able to make the modifications that are needed in a newly created 
 Once the PR has been accepted, the reviewer should delete the branch.
 
 
-## Modifying a dependency that you don't own<a name="modify-unowned-dep"></a>
+<a name="modify-unowned-dep"></a>
+## Modifying a dependency that you don't own
 
 This is the only case where a fork is acceptable.
 
@@ -130,7 +139,8 @@ Next, you'll want to make sure you check out the tag of the release you were on,
 You'll now be able to make the modifications that are needed in a newly created branch called 'My Fix'.  You'll be able to build and test these changes in your app.  When you've finished, you should now do a PR from your 'My Fix' branch back to the original org's repository.  When accepted, either delete your fork, or at the very least pull from the original so that your master and list of tags matches theirs.
 
 
-## Making a release<a name="making-releases"></a>
+<a name="making-releases"></a>
+## Making a release
 
 Go to your project on Github.  Once there perform the steps below:
 
@@ -150,7 +160,8 @@ An example of a near-perfect release form completion can be seen here:  https://
 You should strive to be as thorough as this.  It's very helpful to those who depend on you.
 
 
-## How to update a dependency<a name="updating-dep"></a>
+<a name="updating-dep"></a>
+## How to update a dependency
 
 If you're working on an Application:
 
@@ -173,7 +184,8 @@ It's possible that you may need to go back to your app and fix any changes in th
 It is very important that you point your dependency to a specific version tag as much as possible.  A notable exceptions to this is modifying a dependency that is changing rapidly during development.  In that case, it may make more sense to point to 'master' temporarily while this work happens.
 
 
-# Q & A<a name="q-and-a"></a>
+<a name="q-and-a"></a>
+# Q & A
 
 ## What if Master is at v2.0.0, and I need to make a fix to v1.0.0?
 
