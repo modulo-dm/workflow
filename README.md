@@ -121,8 +121,18 @@ You'll now be able to make the modifications that are needed in a newly created 
 
 ## Making a release
 
+Go to your project on Github.  Once there perform the steps below:
 
-## When to make a pre-release
+![Release1](https://github.com/modulo-dm/workflow/raw/master/release1.png "Release1")
+![Release2](https://github.com/modulo-dm/workflow/raw/master/release2.png "Release2")
+
+Lastly, fill out the form appropriately.  If your change hasn't been PR'd be sure to check the "Pre-release" box.
+
+![Release3](https://github.com/modulo-dm/workflow/raw/master/release3.png "Release3")
+
+An example of a near-perfect release form completion can be seen here:  https://github.com/Electrode-iOS/ELWebService/releases/tag/v3.0.0
+
+You should strive to be as thorough as this.  It's very helpful to those who depend on you.
 
 
 ## How to update a dependency
@@ -134,3 +144,4 @@ You'll now be able to make the modifications that are needed in a newly created 
 
 Follow the appropriate steps above to the point of making a PR.  At this point, you'll want to make a new release that includes your bug fix.  Since your fix is for v1.0.0, your new release tag will be v1.0.1 (refer to versioning above) and point to the SHA your branch is using.  It's best to tag your release at this point and check the "Pre-Release" box, since it hasn't been accepted into the master yet.  Once tagged and PR'd, your fix branch can be deleted.  You'll have to manage getting your fix PR'd into master seperately as things may have changed enough that it doesn't merge cleanly.
 
+## When to make a pre-release
