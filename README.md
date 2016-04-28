@@ -16,6 +16,7 @@
 - Team: A group that is responsible for a limited number of sections in an overall application.
 - Semver: See http://semver.org
 - Module: A unit of code in the form of a library or framework.
+- Organization: A GitHub organization that groups a collection of repositories together
 
 #### A word about Teams
 
@@ -26,7 +27,7 @@ A team can be divided up however you like.  The idea is to figure out the lines 
 
 - Only applications should have submodules.
 - Modules/Frameworks should *not* have submodules.
-- Each team has it's own organization to limit write-access.
+- Each team has it's own GitHub organization to limit write-access.
 - Modules/Frameworks refer to their dependency projects by ../
 - Suggested that the only branch ever in use is Master.
 - Only version tags or 'master' should be used for checkout purposes.
@@ -163,9 +164,19 @@ Remember, use Semver formatting when you specify your tag name, ie: v1.2.3.  Onc
 
 ![Release3](https://github.com/modulo-dm/workflow/raw/master/release3.png "Release3")
 
-An example of a near-perfect release form completion can be seen here:  https://github.com/Electrode-iOS/ELWebService/releases/tag/v3.0.0
+### Writing Release Notes
 
-You should strive to be as thorough as this.  It's very helpful to those who depend on you.
+Write a descriptive list of all breaking changes, new features, deprecations, and minor fixes. If you are disciplined about writing descriptive commit messages and isolating changes in separate commits you should be able to use the output from a `git log` command as a good starting point for the list of changes.
+
+Use `git log` to log a diff between your changes and the upstream branch:
+
+```
+git log --no-merges v2.0.01..master --pretty=format:'- %s'
+```
+
+An example of writing good release notes can be found here: https://github.com/Electrode-iOS/ELWebService/releases/tag/v3.0.0
+
+You should strive to be as thorough as the example.  It's very helpful to those who depend on you.
 
 
 <a name="updating-dep"></a>
